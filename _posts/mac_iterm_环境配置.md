@@ -23,10 +23,33 @@ iterm其实并不支持session clone;command+t只能是复制窗口，在办公�
            
 这样command + t 即可复制session了
 
+#### 4配置 rz sz;
+参考：http://www.tuicool.com/articles/EvemMfr
+
+1. 安装lrzsz
+	
+		brew install lrzsz
+
+2. 将 iterm2-send-zmodem.sh 和 iterm2-recv-zmodem.sh 脚本保存在 /usr/local/bin/
+	
+		https://github.com/mmastrac/iterm2-zmodem
+	
+3. 在iTerm 2添加Triggers
+
+		Regular expression: \*\*B0100
+		Action: Run Silent Coprocess
+    	Parameters: /usr/local/bin/iterm2-send-zmodem.sh
+ 
+    	Regular expression: \*\*B00000000000000
+    	Action: Run Silent Coprocess
+    	Parameters: /usr/local/bin/iterm2-recv-zmodem.sh	
 
 
+###Mac 下使用wireshark解决Interface为空的办法
+su chown <user-name> /dev/bpf*
 
-
+###linux 支持edns dig
+https://www.gsic.uva.es/~jnisigl/dig-edns-client-subnet.html
 
 
 
@@ -89,3 +112,8 @@ strace -p pid
 
 uri:统一描资源述符
 url:统一资源定位符
+
+
+
+
+

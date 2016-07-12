@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/stylesheets/stylesheet.css">
+  <link rel="canonical" href="/mac-iterm-%E9%85%8D%E7%BD%AE/">
+  <link rel="alternate" type="application/rss+xml" title="码路自寻" href="/feed.xml">
+  <meta name="description" content="mac iterm 环境配置windows下一直使用xshell,特别喜欢xshell支持的快捷键输入密码，当然mac下有破解版的secureCRT，但是蛋疼的界面看起来太杂乱了，还是iterm使用起来精简清晰；习惯了使用xshell，当然需要把iterm配置成xshell工作模式啦#### 1、官网下载iter...">
+
+   <title>iterm 配置</title>
+
+
+
+</head>
+
+
+  <body>
+
+    <header class="page-header">
+     <h1 class="project-name"> <a class="header-link" href="/"> 码路自寻</a></h1>
+     <!--<h3 style="font-weight: lighter;">a blog for <a class="header-link" href="http://canijustgo.com/" target="_blank">canijustgo.com</a></h3>-->
+     <h3><a class="header-link" href="http://twitter.com/colinSharpeye" target="_blank">follow @colinSharpeye</a></h3>
+</header>
+
+
+    <section class="main-content">
+      <div class="wrapper">
+        <h3 id="mac-iterm-">mac iterm 环境配置</h3>
+<p>windows下一直使用xshell,特别喜欢xshell支持的快捷键输入密码，当然mac下有破解版的secureCRT，但是蛋疼的界面看起来太杂乱了，还是iterm使用起来精简清晰；习惯了使用xshell，当然需要把iterm配置成xshell工作模式啦
+#### 1、官网下载iterm2,并安装；
+#### 2、配置快捷键</p>
+
+<p>将快捷键配置为存储的机器名或者对应机器名的几个常用密码，（机器名：shift+F1..n,密码F1..n）使用起来特别方便；</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>command+O打开profile编辑界面；	
+创建新的profile或者修改default profile；
+选择key选项；里面配置对应的快捷键（切记action 选择send text,\n 标示换行）对应的操作即可
+</code></pre>
+</div>
+
+<p>好啦，关闭之后在iterm键入快捷键，即可输入对应的text;</p>
+
+<h4 id="session-clone">3、session clone</h4>
+<p>iterm其实并不支持session clone;command+t只能是复制窗口，在办公时候登入relay需要重复输入token密码（一个密码只能输入一次，一般人我不告诉他），也是醉醉的；</p>
+
+<p>但是，可以用另外的方法替换session clone 的模式；参考：http://www.cnblogs.com/rollenholt/p/4531199.html</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> 在~/.ssh里面创建一个config文件
+ 输入： host *
+       ControlMaster auto
+       ControlPath ~/.ssh/master-%r@%h:%p
+</code></pre>
+</div>
+
+<p>这样command + t 即可复制session了</p>
+
+      </div>
+    </div>
+
+    <p style="font-size: 60%; text-align: right;">blog built using the <a href="https://github.com/jasonlong/cayman-theme">cayman-theme</a> by <a href="https://github.com/jasonlong">Jason Long</a>. <a href="http://creativecommons.org/licenses/by/4.0/">LICENSE</a></p>
+
+
+
+  </body>
+
+    
+
+
+</html>
